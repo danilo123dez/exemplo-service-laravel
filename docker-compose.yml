@@ -1,0 +1,16 @@
+version: '2.1'
+services:
+
+  # The Application
+  app:
+    build:
+      context: ./submodules/docker
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./www/:/var/www/html
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "80:80"
